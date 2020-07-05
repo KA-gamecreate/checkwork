@@ -9,6 +9,10 @@ public class key : MonoBehaviour
     public GameObject blue;
     public GameObject green;
     public GameObject door;
+    public GameObject aka;
+    public GameObject ao;
+    public GameObject midori;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +20,15 @@ public class key : MonoBehaviour
         blue.gameObject.SetActive(false);
         green.gameObject.SetActive(false);
         door.gameObject.SetActive(false);
+        aka.gameObject.SetActive(false);
+        ao.gameObject.SetActive(false);
+        midori.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,25 +36,30 @@ public class key : MonoBehaviour
         Debug.Log("hit");
 
         if (collision.gameObject.tag == "red")
-        { 
+        {
             blue.gameObject.SetActive(true);
+            aka.gameObject.SetActive(true);
         }
 
         if (collision.gameObject.tag == "blue")
         {
             green.gameObject.SetActive(true);
+            ao.gameObject.SetActive(true);
         }
 
         if (collision.gameObject.tag == "green")
         {
             door.gameObject.SetActive(true);
+            midori.gameObject.SetActive(true);
         }
-        if (collision.gameObject.tag == "door")
-        {
-            SceneManager.LoadScene("battle");
+
+            if (collision.gameObject.tag == "door")
+            {
+                SceneManager.LoadScene("battle");
+            }
         }
     }
-}
+
 
 
 
